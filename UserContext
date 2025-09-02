@@ -1,0 +1,25 @@
+import { createContext, useState } from 'react';
+
+
+/**
+ * React context for managing and providing user-related data and actions throughout the application.
+ * 
+ * @remarks
+ * Use this context to access or update the current user's information from any component within the provider tree.
+ * 
+ * @example
+ * ```tsx
+ * const user = useContext(UserContext);
+ * ```
+ */
+export const UserContext = createContext();
+
+export function UserProvider({ children }) {
+  const [user, setUser] = useState(null);
+  // …
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+}

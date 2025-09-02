@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighbiz - Connect with Local Businesses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#073b4c',
+                        'teal': '#008c95',
+                        'light-bg': '#f9f9f9'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-light-bg">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-navy">Neighbiz</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showSignIn()" class="text-navy hover:text-teal font-medium">Sign In</button>
+                    <button onclick="showSignUp()" class="bg-teal text-white px-6 py-2 rounded-full hover:bg-opacity-90 font-medium">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-navy to-teal text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-6">Connect with Your Neighborhood</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Discover local businesses and services right in your area. From home repairs to beauty services, find trusted neighbors ready to help.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="showUserSignUp()" class="bg-white text-navy px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Find Local Services
+                </button>
+                <button onclick="showBusinessSignUp()" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-navy transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    List Your Business
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-navy mb-4">How Neighbiz Works</h2>
+                <p class="text-gray-600 text-lg">Simple, secure, and local</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-teal rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Set Your Radius</h3>
+                    <p class="text-gray-600">Choose how far you want to search - 5km, 10km, or 15km from your location.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-teal rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Chat Directly</h3>
+                    <p class="text-gray-600">Message businesses directly through our secure in-app chat system.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-teal rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Book Appointments</h3>
+                    <p class="text-gray-600">Schedule services directly with businesses that offer appointment booking.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-teal rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-navy mb-2">Rate & Review</h3>
+                    <p class="text-gray-600">Help your community by sharing your experience with local businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-20 bg-light-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-navy mb-4">Service Categories</h2>
+                <p class="text-gray-600 text-lg">Find exactly what you need</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Home & Handy Help</h3>
+                    <p class="text-gray-600 text-sm">Repairs, maintenance, cleaning, and home improvements</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Beauty</h3>
+                    <p class="text-gray-600 text-sm">Hair, nails, skincare, and wellness services</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Child & Family Support</h3>
+                    <p class="text-gray-600 text-sm">Childcare, tutoring, and family assistance</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 1v6m6-6v6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Delivery & Errands</h3>
+                    <p class="text-gray-600 text-sm">Shopping, pickup, delivery, and personal errands</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Auto Services</h3>
+                    <p class="text-gray-600 text-sm">Car maintenance, repairs, and automotive care</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy mb-2">Clothing & Tailoring</h3>
+                    <p class="text-gray-600 text-sm">Alterations, custom clothing, and textile services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Modal -->
+    <div id="signUpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Join Neighbiz</h2>
+                <p class="text-gray-600">Choose how you want to get started</p>
+            </div>
+            
+            <div class="space-y-4">
+                <button onclick="showUserForm()" class="w-full bg-teal text-white py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    I'm looking for services
+                </button>
+                <button onclick="showBusinessForm()" class="w-full border-2 border-teal text-teal py-4 rounded-xl font-semibold hover:bg-teal hover:text-white transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                    I want to offer services
+                </button>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- User Sign Up Form -->
+    <div id="userSignUpForm" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Create Your Account</h2>
+                <p class="text-gray-600">Find local services in your area</p>
+            </div>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your first name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your last name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Create a password">
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a2 2 0 00-2-2H8a2 2 0 00-2 2v3h8z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-blue-800 mb-2">Privacy & Data Protection</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-start">
+                                    <input type="checkbox" required class="rounded border-gray-300 text-teal focus:ring-teal mr-2 mt-0.5">
+                                    <span class="text-sm text-blue-700">I agree to the <button type="button" onclick="showPrivacyPolicy()" class="text-teal underline">Privacy Policy</button> and <button type="button" onclick="showTerms()" class="text-teal underline">Terms of Service</button></span>
+                                </label>
+                                <label class="flex items-start">
+                                    <input type="checkbox" class="rounded border-gray-300 text-teal focus:ring-teal mr-2 mt-0.5">
+                                    <span class="text-sm text-blue-700">I consent to receive marketing communications (optional)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full bg-teal text-white py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
+                    Create Account
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <p class="text-sm text-gray-600">Already have an account? <button onclick="showSignIn()" class="text-teal font-medium">Sign in</button></p>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Business Sign Up Form -->
+    <div id="businessSignUpForm" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Start Your Business</h2>
+                <p class="text-gray-600">30-day free trial included</p>
+            </div>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter business name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Owner Name</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your full name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent">
+                        <option>Select a category</option>
+                        <option>Home & Handy Help</option>
+                        <option>Beauty</option>
+                        <option>Child & Family Support</option>
+                        <option>Delivery & Errands</option>
+                        <option>Auto Services</option>
+                        <option>Clothing & Tailoring</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Create a password">
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-blue-800 mb-2">Appointment Booking</h4>
+                            <label class="flex items-center">
+                                <input type="checkbox" id="appointmentBooking" class="rounded border-gray-300 text-teal focus:ring-teal mr-2">
+                                <span class="text-sm text-blue-700">Enable online appointment booking for my business</span>
+                            </label>
+                            <p class="text-xs text-blue-600 mt-1">Customers can book appointments directly through the app with automatic reminders</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2zm10-12V6a2 2 0 00-2-2H8a2 2 0 00-2 2v3h8z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-green-800 mb-2">Privacy & Data Protection</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-start">
+                                    <input type="checkbox" required class="rounded border-gray-300 text-teal focus:ring-teal mr-2 mt-0.5">
+                                    <span class="text-sm text-green-700">I agree to the <button type="button" onclick="showPrivacyPolicy()" class="text-teal underline">Privacy Policy</button> and <button type="button" onclick="showTerms()" class="text-teal underline">Terms of Service</button></span>
+                                </label>
+                                <label class="flex items-start">
+                                    <input type="checkbox" class="rounded border-gray-300 text-teal focus:ring-teal mr-2 mt-0.5">
+                                    <span class="text-sm text-green-700">I consent to receive marketing communications (optional)</span>
+                                </label>
+                                <label class="flex items-start">
+                                    <input type="checkbox" required class="rounded border-gray-300 text-teal focus:ring-teal mr-2 mt-0.5">
+                                    <span class="text-sm text-green-700">I understand that customer data will be processed securely according to GDPR standards</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                        <div class="flex-1">
+                            <h4 class="font-medium text-yellow-800">Payment Setup Required</h4>
+                            <p class="text-sm text-yellow-700 mt-1 mb-3">After registration, you'll need to add a payment method via Paystack to activate your 30-day free trial.</p>
+                            <a href="https://paystack.shop/pay/xpxfg-t1p3" target="_blank" class="inline-flex items-center px-4 py-2 bg-teal text-white text-sm font-medium rounded-lg hover:bg-opacity-90 transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                Setup Payment Method
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full bg-teal text-white py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
+                    Start Free Trial
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <p class="text-sm text-gray-600">Already have an account? <button onclick="showSignIn()" class="text-teal font-medium">Sign in</button></p>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sign In Form -->
+    <div id="signInForm" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Welcome Back</h2>
+                <p class="text-gray-600">Sign in to your Neighbiz account</p>
+            </div>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your email">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal focus:border-transparent" placeholder="Enter your password">
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="rounded border-gray-300 text-teal focus:ring-teal">
+                        <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                    </label>
+                    <button type="button" class="text-sm text-teal hover:underline">Forgot password?</button>
+                </div>
+                
+                <button type="submit" class="w-full bg-teal text-white py-4 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
+                    Sign In
+                </button>
+            </form>
+            
+            <div class="text-center mt-4">
+                <p class="text-sm text-gray-600">Don't have an account? <button onclick="showSignUp()" class="text-teal font-medium">Sign up</button></p>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Privacy Policy</h2>
+                <p class="text-gray-600">How we protect and use your data</p>
+            </div>
+            
+            <div class="space-y-6 text-sm text-gray-700">
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Data Collection</h3>
+                    <p>We collect only the information necessary to provide our services, including your name, email, location (for service matching), and communication preferences.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Data Usage</h3>
+                    <p>Your data is used to connect you with local businesses, facilitate secure communications, process payments, and improve our services. We never sell your personal information.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Data Protection</h3>
+                    <p>We implement industry-standard security measures including encryption, secure servers, and regular security audits. All payment processing is handled securely through Paystack.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Your Rights</h3>
+                    <p>You have the right to access, update, or delete your personal data at any time. You can also opt out of marketing communications while maintaining your account.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">GDPR Compliance</h3>
+                    <p>We are fully compliant with GDPR regulations and respect your privacy rights. Data is processed lawfully, fairly, and transparently.</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-4 mt-8">
+                <button onclick="closeModal()" class="flex-1 bg-teal text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
+                    I Understand
+                </button>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-navy mb-2">Terms of Service</h2>
+                <p class="text-gray-600">Your agreement with Neighbiz</p>
+            </div>
+            
+            <div class="space-y-6 text-sm text-gray-700">
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Service Agreement</h3>
+                    <p>By using Neighbiz, you agree to connect with local businesses in a respectful and lawful manner. We facilitate connections but are not responsible for the quality of services provided.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">User Responsibilities</h3>
+                    <p>Users must provide accurate information, communicate respectfully, and comply with local laws. Businesses must deliver services as advertised and maintain professional standards.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Payment Terms</h3>
+                    <p>Payments are processed securely through Paystack. Businesses pay subscription fees, while users pay service providers directly. Refunds are handled according to individual business policies.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Limitation of Liability</h3>
+                    <p>Neighbiz is a platform connecting users and businesses. We are not liable for disputes, service quality, or damages arising from transactions between users and service providers.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-navy mb-2">Account Termination</h3>
+                    <p>We reserve the right to suspend or terminate accounts that violate these terms, engage in fraudulent activity, or harm the community.</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-4 mt-8">
+                <button onclick="closeModal()" class="flex-1 bg-teal text-white py-3 rounded-xl font-semibold hover:bg-opacity-90 transition-colors">
+                    I Agree
+                </button>
+            </div>
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Neighbiz</h3>
+                    <p class="text-gray-300">Connecting communities through local business services.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">For Users</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white">Find Services</a></li>
+                        <li><a href="#" class="hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white">Safety</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">For Businesses</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white">List Your Business</a></li>
+                        <li><a href="#" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Neighbiz. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSignUp() {
+            closeModal();
+            document.getElementById('signUpModal').classList.remove('hidden');
+            document.getElementById('signUpModal').classList.add('flex');
+        }
+
+        function showUserSignUp() {
+            closeModal();
+            showUserForm();
+        }
+
+        function showBusinessSignUp() {
+            closeModal();
+            showBusinessForm();
+        }
+
+        function showUserForm() {
+            closeModal();
+            document.getElementById('userSignUpForm').classList.remove('hidden');
+            document.getElementById('userSignUpForm').classList.add('flex');
+        }
+
+        function showBusinessForm() {
+            closeModal();
+            document.getElementById('businessSignUpForm').classList.remove('hidden');
+            document.getElementById('businessSignUpForm').classList.add('flex');
+        }
+
+        function showSignIn() {
+            closeModal();
+            document.getElementById('signInForm').classList.remove('hidden');
+            document.getElementById('signInForm').classList.add('flex');
+        }
+
+        function showPrivacyPolicy() {
+            closeModal();
+            document.getElementById('privacyModal').classList.remove('hidden');
+            document.getElementById('privacyModal').classList.add('flex');
+        }
+
+        function showTerms() {
+            closeModal();
+            document.getElementById('termsModal').classList.remove('hidden');
+            document.getElementById('termsModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            const modals = ['signUpModal', 'userSignUpForm', 'businessSignUpForm', 'signInForm', 'privacyModal', 'termsModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modals = ['signUpModal', 'userSignUpForm', 'businessSignUpForm', 'signInForm', 'privacyModal', 'termsModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        // Form submissions (demo functionality)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Determine if this is user or business registration
+                const isBusinessForm = form.closest('#businessSignUpForm');
+                const isUserForm = form.closest('#userSignUpForm');
+                
+                if (isBusinessForm) {
+                    // Business registration
+                    const businessName = form.querySelector('input[placeholder="Enter business name"]').value;
+                    const email = form.querySelector('input[type="email"]').value;
+                    
+                    // Simulate sending welcome email
+                    console.log(`Sending business welcome email to: ${email}`);
+                    console.log(`From: hello@neighbizapp.co.za`);
+                    console.log(`Subject: Welcome to Neighbiz, ${businessName}!`);
+                    
+                    alert(`Demo: Business account created successfully!\n\nA welcome email has been sent to ${email} from hello@neighbizapp.co.za with setup instructions and your 30-day free trial details.`);
+                } else if (isUserForm) {
+                    // User registration
+                    const firstName = form.querySelector('input[placeholder="Enter your first name"]').value;
+                    const email = form.querySelector('input[type="email"]').value;
+                    
+                    // Simulate sending welcome email
+                    console.log(`Sending user welcome email to: ${email}`);
+                    console.log(`From: hello@neighbizapp.co.za`);
+                    console.log(`Subject: Welcome to Neighbiz, ${firstName}!`);
+                    
+                    alert(`Demo: Account created successfully!\n\nA welcome email has been sent to ${email} from hello@neighbizapp.co.za with tips on finding local services in your area.`);
+                } else {
+                    // Sign in or other forms
+                    alert('Demo: Form submitted successfully!');
+                }
+                
+                closeModal();
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978486de00ad3eac',t:'MTc1NjcyNzE4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
